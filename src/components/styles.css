@@ -1,0 +1,9 @@
+.todo {
+  color: #61dafb;
+  cursor: pointer;
+}
+
+.completed {
+  color: #282c34;
+  text-decoration: line-through;
+}

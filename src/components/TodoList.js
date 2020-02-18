@@ -1,5 +1,6 @@
 import React, { useState, useReducer } from 'react';
 import { todoReducer, initialState } from '../reducers/todoReducer';
+import './styles.css';
 
 const TodoList = () => {
 
@@ -10,6 +11,10 @@ const TodoList = () => {
   const changeHandler = e => {
     setNewTodo(e.target.value);
   };
+
+  const submitHandler = () => {
+    setNewTodo('');
+  }
 
   return(
     <section>
@@ -27,6 +32,7 @@ const TodoList = () => {
           style={{height:'26px'}}
           onClick={() => {
             dispatch({ type: 'ADD_TODO', payload: newTodo });
+            submitHandler();
           }}>
           ADD
         </button>
@@ -35,8 +41,10 @@ const TodoList = () => {
       {state.todos.map( todo => {
         return(
           <h3
+            className={(todo.completed === false) ? 'todo' : 'todo completed'}
             key={todo.id}
             onClick={() => {
+              todo.completed = !todo.completed;
               dispatch({ type: 'COMPLETE_TASK' });
             }}
           >

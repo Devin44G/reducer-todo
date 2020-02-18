@@ -26,8 +26,7 @@ export const todoReducer = (state, action) => {
     case 'COMPLETE_TASK':
       return {
         ...state,
-        completed: !state.completed
-      };
+      }
     default:
       return state;
   }
