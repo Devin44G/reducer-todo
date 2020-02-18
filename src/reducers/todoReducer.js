@@ -4,9 +4,19 @@
 export const initialState = {
   todos: [
     {
-      item: 'Learn Stuff',
+      item: 'Learn Advanced React',
       completed: false,
       id: 28118728
+    },
+    {
+      item: 'Update Portfolio',
+      completed: false,
+      id: 28118729
+    },
+    {
+      item: 'Apply for jobs',
+      completed: false,
+      id: 28118730
     }
   ]
 }
@@ -26,6 +36,11 @@ export const todoReducer = (state, action) => {
     case 'COMPLETE_TASK':
       return {
         ...state,
+      };
+    case 'CLEAR_TODOS':
+      return {
+        ...state,
+        todos: [...state.todos.filter( todo => !todo.completed)]
       }
     default:
       return state;

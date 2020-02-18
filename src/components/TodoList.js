@@ -36,6 +36,13 @@ const TodoList = () => {
           }}>
           ADD
         </button>
+        <button
+          style={{height:'26px'}}
+          onClick={() => {
+            dispatch({ type: 'CLEAR_TODOS' });
+          }}>
+          CLEAR COMPLETED
+        </button>
       </div>
       {/* LIST OF TODOS */}
       {state.todos.map( todo => {
